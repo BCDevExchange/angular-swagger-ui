@@ -38,12 +38,12 @@ angular
 				// If true, it avoids using ngSanitize but consider HTML as trusted so won't be cleaned
 				trustedSources: '=?'
 			},
-			link: function(scope, element, attrs) {
+			link: function(scope) {
 				// check parameters
 				if (scope.permalinks && $injector.has('$route')) {
 					var $route = $injector.get('$route','swaggerUi');
 					if ($route.current && $route.current.$$route && $route.current.$$route.reloadOnSearch) {
-						console.warn('AngularSwaggerUI: when using permalinks you should set reloadOnSearch=false in your route config to avoid UI being rebuilt multiple times')
+						console.warn('AngularSwaggerUI: when using permalinks you should set reloadOnSearch=false in your route config to avoid UI being rebuilt multiple times');
 					}
 				}
 				if (!scope.trustedSources && !$injector.has('$sanitize')) {
